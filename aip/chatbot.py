@@ -33,6 +33,7 @@ res = aipSpeech.asr(get_file_content(WAVE_OUTPUT_FILENAME), 'pcm', 16000, {'lan'
 print(res["err_msg"])
 if res["err_msg"] == "success.":
     print(res["result"][0])
+    # call 图灵机器人
     cont = requests.get(
         'http://www.tuling123.com/openapi/api?key=e388af15069f4eddac400c6147a705db&info=%s&userid=274715' % (res["result"][0],)).content
     m = json.loads(cont)
